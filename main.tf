@@ -66,3 +66,15 @@ module "NetworkInterface" {
   public_ip_address_id = module.PublicIP.pip_id_out
 }
 
+module "SQLServer" {
+  source              = "./SqlServer"
+  base_ss_name        = "Storage1"
+  resource_group_name = module.ResourceGroup.rg_name_out
+}
+
+module "SQLDatabase" {
+  source        = "./SqlDatabase"
+  base_sdb_name = "Storage1"
+  server_id     = module.SQLServer.ss_id_out
+
+}
