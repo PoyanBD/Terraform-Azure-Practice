@@ -78,3 +78,7 @@ module "SQLDatabase" {
   server_id     = module.SQLServer.ss_id_out
 
 }
+
+module "policy" {
+  source = "./Policy"
+}

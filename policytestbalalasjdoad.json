@@ -1,0 +1,69 @@
+"PUT https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/res9101/providers/Microsoft.Storage/storageAccounts/sto4445?api-version=2023-05-01"
+
+{
+  "sku": {
+    "name": "Standard_GRS"
+  },
+  "kind": "Storage",
+  "location": "eastus",
+  "extendedLocation": {
+    "type": "EdgeZone",
+    "name": "losangeles001"
+  },
+  "properties": {
+    "keyPolicy": {
+      "keyExpirationPeriodInDays": 20
+    },
+    "sasPolicy": {
+      "sasExpirationPeriod": "1.15:59:59",
+      "expirationAction": "Log"
+    },
+    "isHnsEnabled": true,
+    "allowBlobPublicAccess": false,
+    "minimumTlsVersion": "TLS1_2",
+    "allowSharedKeyAccess": true,
+    "publicNetworkAccess": "Disabled",
+    "routingPreference": {
+      "routingChoice": "MicrosoftRouting",
+      "publishMicrosoftEndpoints": true,
+      "publishInternetEndpoints": true
+    },
+    "encryption": {
+      "services": {
+        "file": {
+          "keyType": "Account",
+          "enabled": true
+        },
+        "blob": {
+          "keyType": "Account",
+          "enabled": true
+        }
+      },
+      "requireInfrastructureEncryption": false,
+      "keySource": "Microsoft.Storage"
+    }
+  },
+  "tags": {
+    "key1": "value1",
+    "key2": "value2"
+  }
+}
+
+
+
+"effect": {
+        "type": "String",
+        "metadata": {
+          "displayName": "Effect",
+          "description": "The effect determines what happens when the policy rule is evaluated to match"
+        },
+        "allowedValues": [
+          "audit",
+          "Audit",
+          "deny",
+          "Deny",
+          "disabled",
+          "Disabled"
+        ],
+        "defaultValue": "Audit"
+      }
